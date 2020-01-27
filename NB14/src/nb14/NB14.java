@@ -30,12 +30,19 @@ public class NB14 {
                 return (amount/3);
             }
             else{
-                int tio = amount/3;
+                if((amount -(4*count))%3!=0){//räknas ut för 5 öring
+                    System.out.println("tja");
+                    return myntMaskin(count+1,amount);
+                }
+                else{
+                    return count;
+                }
+                /*int tio = amount/3;
                 count = amount%3;
-                System.out.println("Fem:" + count + " Tio:" + tio);
+                System.out.println("Fem:" + count + " Tio:" + tio);*/
             }
         }
-        return 0;
+        //return 0;
     }
     /*
     Tar in amount
