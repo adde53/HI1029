@@ -18,28 +18,32 @@ public class LabU5HI1029 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        char[] test ={'B','E','C','A','D'};
+        char[] characters ={'B','E','C','A','D'};
         char[] outPut ={'A','B','C','D','E'};
-        System.out.println(robot(test, 0, outPut,""));
+        //robot(test, 0, outPut,"");
+        System.out.println("Tar "+robot(characters, outPut) + " steg: " + temp);
     }
-    
-    public static int robot(char[] characters, int moves, char[] outPut, String bs){
+    public static int robot(char[] characters, char[] output){
+        return robot(characters, 0, output, "");
+    }
+    private static String temp = "ssssssssssssssssssssssssssssssssssssss";
+    private static int robot(char[] characters, int moves, char[] outPut, String bs){
         if(moves > 10){
             return Integer.MAX_VALUE;
         }
         if(Arrays.equals(characters, outPut)){
-            //System.out.println("HALLOJ");
-            //System.out.println(moves);
-            for(int i = 0; i<characters.length; i++){
+           /* for(int i = 0; i<characters.length; i++){
                 System.out.print(characters[i] + "");
+            }*/
+            if(temp.length()>bs.length()){
+                temp = bs;
             }
-            System.out.println();
-            System.out.println("Steg: " +bs);
             return moves;
         }
         int s = robot(swift(characters),moves+1,outPut,bs+"s");
         int b = robot(byta(characters),moves+1,outPut,bs+"b");
         if(s>b){
+            
             return b;
         }
         else{
